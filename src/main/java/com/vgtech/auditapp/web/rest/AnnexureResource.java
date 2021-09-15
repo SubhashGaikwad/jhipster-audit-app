@@ -103,7 +103,7 @@ public class AnnexureResource {
      * or with status {@code 500 (Internal Server Error)} if the annexure couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/annexures/{id}", consumes = "application/merge-patch+json")
+    @PatchMapping(value = "/annexures/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<Annexure> partialUpdateAnnexure(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody Annexure annexure
@@ -122,21 +122,19 @@ public class AnnexureResource {
 
         Optional<Annexure> result = annexureRepository
             .findById(annexure.getId())
-            .map(
-                existingAnnexure -> {
-                    if (annexure.getType() != null) {
-                        existingAnnexure.setType(annexure.getType());
-                    }
-                    if (annexure.getCompliance() != null) {
-                        existingAnnexure.setCompliance(annexure.getCompliance());
-                    }
-                    if (annexure.getComment() != null) {
-                        existingAnnexure.setComment(annexure.getComment());
-                    }
-
-                    return existingAnnexure;
+            .map(existingAnnexure -> {
+                if (annexure.getType() != null) {
+                    existingAnnexure.setType(annexure.getType());
                 }
-            )
+                if (annexure.getCompliance() != null) {
+                    existingAnnexure.setCompliance(annexure.getCompliance());
+                }
+                if (annexure.getComment() != null) {
+                    existingAnnexure.setComment(annexure.getComment());
+                }
+
+                return existingAnnexure;
+            })
             .map(annexureRepository::save);
 
         return ResponseUtil.wrapOrNotFound(

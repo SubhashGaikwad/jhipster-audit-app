@@ -9,6 +9,11 @@
         "main": "Entities",
         "question": "Question",
         "annexure": "Annexure",
+        "auditFormSHospGenInfo": "Audit Form S Hosp Gen Info",
+        "audit": "Audit",
+        "annexureQuestions": "Annexure Questions",
+        "annexureAnswers": "Annexure Answers",
+        "auditPatientMonitoringForm": "Audit Patient Monitoring Form",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

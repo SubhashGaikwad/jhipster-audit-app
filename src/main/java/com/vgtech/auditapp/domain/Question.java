@@ -15,6 +15,7 @@ public class Question implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "type")
@@ -34,17 +35,18 @@ public class Question implements Serializable {
     private Annexure annexure;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
+
     public Long getId() {
-        return id;
+        return this.id;
+    }
+
+    public Question id(Long id) {
+        this.setId(id);
+        return this;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Question id(Long id) {
-        this.id = id;
-        return this;
     }
 
     public String getType() {
@@ -52,7 +54,7 @@ public class Question implements Serializable {
     }
 
     public Question type(String type) {
-        this.type = type;
+        this.setType(type);
         return this;
     }
 
@@ -65,7 +67,7 @@ public class Question implements Serializable {
     }
 
     public Question subType(String subType) {
-        this.subType = subType;
+        this.setSubType(subType);
         return this;
     }
 
@@ -78,7 +80,7 @@ public class Question implements Serializable {
     }
 
     public Question sno(Double sno) {
-        this.sno = sno;
+        this.setSno(sno);
         return this;
     }
 
@@ -91,7 +93,7 @@ public class Question implements Serializable {
     }
 
     public Question description(String description) {
-        this.description = description;
+        this.setDescription(description);
         return this;
     }
 
@@ -103,13 +105,13 @@ public class Question implements Serializable {
         return this.annexure;
     }
 
+    public void setAnnexure(Annexure annexure) {
+        this.annexure = annexure;
+    }
+
     public Question annexure(Annexure annexure) {
         this.setAnnexure(annexure);
         return this;
-    }
-
-    public void setAnnexure(Annexure annexure) {
-        this.annexure = annexure;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

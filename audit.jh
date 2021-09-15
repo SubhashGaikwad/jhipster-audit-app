@@ -1,0 +1,164 @@
+
+entity AuditFormSHospGenInfo{
+	hospName String
+    hospType String
+	type String
+	subType String
+    formName String
+    inchargeName String
+    hospAddress String
+    hospPhoneNo String
+    normalBeds Integer
+    oxygenBeds Integer
+    ventilatorBeds Integer
+    icuBeds Integer
+    onCylinderPatient Integer
+    onPipedBedsPatient Integer
+    onNIV Integer
+    onIntubated Integer
+    jumboSystemInstalledType String
+    availableCylinderTypeD7 Integer
+    availableCylinderTypeB Integer
+    cylinderAgencyName String
+    cylinderAgencyAddress String
+    availableLMOCapacityKL Double
+    lmoSupplierName String
+    lmoSupplierFrequency Integer
+    lastLmoSuppliedQuantity Double
+    remark String
+    createdDate LocalDate
+    createdBy String
+    lastModified LocalDate
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+}
+
+entity Audit{
+    auditDate LocalDate
+    hospName String  
+    isAuditComplete Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    remark String
+    createdBy String
+    createdDate LocalDate
+    lastModified LocalDate
+    lastModifiedBy String
+}
+
+entity AnnexureQuestions{
+	formName String
+	type String
+    subType String
+	description String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    createdDate LocalDate
+    createdBy String
+    lastModified LocalDate
+    lastModifiedBy String
+}
+
+entity AnnexureAnswers{
+	formName String
+	type String
+	subType String
+	compliance Boolean
+	comment String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+	remark String
+    createdDate LocalDate
+    createdBy String
+    lastModified LocalDate
+    lastModifiedBy String
+}
+ 
+entity AuditPatientMonitoringForm{ 
+        wardNo Integer
+        patientName String
+        bedNo Integer
+        dateOfAdmission LocalDate
+        oxygenType String
+        sixToEightAM Double
+        oxySixToEightAM Double
+        eightToTenAM Double
+        oxyEightToTenAM Double
+        tenToTwelveAM Double
+        oxyTenToTwelveAM Double
+        twelveToTowPM Double
+        oxyTwelveToTowPM Double
+        twoToFourPM Double
+        oxyTwoToFourPM Double
+        fourToSixPM Double
+        oxyFourToSixPM Double
+        sixToEightPM Double
+        oxySixToEightPM Double
+        eightToTenPM Double
+        oxyEightToTenPM Double
+        tenToTwelvePM Double
+        oxyTenToTwelvePM Double
+        twelveToTwoAM Double
+        oxyTwelveToTwoAM Double
+        twoToFourAM Double
+        oxyTwoToFourAM Double
+        fourToSixAM Double
+        oxyFourToSixAM Double
+        createdBy String
+        createdDate LocalDate
+        lastModifiedBy String
+        lastModified LocalDate
+        freeField1 String
+        freeField2 String
+        freeField3 String
+        freeField4 String
+}
+
+enum HospitalType {
+    DCH(DCH),
+    DCHC(DCHC),
+    PRIVATEO2("Private O2 Only")
+}
+
+enum OxygenType {
+    O2(O2),
+    NRBM(NRBM),
+    NIV(NIV),
+    Intub(Intub)
+}
+
+relationship OneToMany {
+     AuditFormSHospGenInfo{audit} to Audit{auditFormSHospGenInfo}
+     Audit{annexureAnswers} to AnnexureAnswers{audit}
+     Audit{annexureQuestions} to AnnexureQuestions{audit}
+     AnnexureQuestions{annexureAnswers} to  AnnexureAnswers{annexureQuestions} 
+}
+
+relationship OneToOne {
+    Audit{auditPatientMonitoringForm} to AuditPatientMonitoringForm{audit}
+}
+
+
+
+// Set pagination options
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+filter *
+// Set an angular suffix
+// angularSuffix * with mySuffix

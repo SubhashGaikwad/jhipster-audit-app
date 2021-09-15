@@ -103,7 +103,7 @@ public class QuestionResource {
      * or with status {@code 500 (Internal Server Error)} if the question couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
-    @PatchMapping(value = "/questions/{id}", consumes = "application/merge-patch+json")
+    @PatchMapping(value = "/questions/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<Question> partialUpdateQuestion(
         @PathVariable(value = "id", required = false) final Long id,
         @RequestBody Question question
@@ -122,24 +122,22 @@ public class QuestionResource {
 
         Optional<Question> result = questionRepository
             .findById(question.getId())
-            .map(
-                existingQuestion -> {
-                    if (question.getType() != null) {
-                        existingQuestion.setType(question.getType());
-                    }
-                    if (question.getSubType() != null) {
-                        existingQuestion.setSubType(question.getSubType());
-                    }
-                    if (question.getSno() != null) {
-                        existingQuestion.setSno(question.getSno());
-                    }
-                    if (question.getDescription() != null) {
-                        existingQuestion.setDescription(question.getDescription());
-                    }
-
-                    return existingQuestion;
+            .map(existingQuestion -> {
+                if (question.getType() != null) {
+                    existingQuestion.setType(question.getType());
                 }
-            )
+                if (question.getSubType() != null) {
+                    existingQuestion.setSubType(question.getSubType());
+                }
+                if (question.getSno() != null) {
+                    existingQuestion.setSno(question.getSno());
+                }
+                if (question.getDescription() != null) {
+                    existingQuestion.setDescription(question.getDescription());
+                }
+
+                return existingQuestion;
+            })
             .map(questionRepository::save);
 
         return ResponseUtil.wrapOrNotFound(
