@@ -1,0 +1,182 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="auditPatientMonitoringForm">
+      <h2 data-cy="auditPatientMonitoringFormDetailsHeading">
+        <span jhiTranslate="auditApp.auditPatientMonitoringForm.detail.title">Audit Patient Monitoring Form</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.wardNo">Ward No</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.wardNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.patientName">Patient Name</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.patientName }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.bedNo">Bed No</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.bedNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.dateOfAdmission">Date Of Admission</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.dateOfAdmission | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxygenType">Oxygen Type</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxygenType }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.sixToEightAM">Six To Eight AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.sixToEightAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxySixToEightAM">Oxy Six To Eight AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxySixToEightAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.eightToTenAM">Eight To Ten AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.eightToTenAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxyEightToTenAM">Oxy Eight To Ten AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxyEightToTenAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.tenToTwelveAM">Ten To Twelve AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.tenToTwelveAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxyTenToTwelveAM">Oxy Ten To Twelve AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxyTenToTwelveAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.twelveToTowPM">Twelve To Tow PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.twelveToTowPM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxyTwelveToTowPM">Oxy Twelve To Tow PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxyTwelveToTowPM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.twoToFourPM">Two To Four PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.twoToFourPM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxyTwoToFourPM">Oxy Two To Four PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxyTwoToFourPM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.fourToSixPM">Four To Six PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.fourToSixPM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxyFourToSixPM">Oxy Four To Six PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxyFourToSixPM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.sixToEightPM">Six To Eight PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.sixToEightPM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxySixToEightPM">Oxy Six To Eight PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxySixToEightPM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.eightToTenPM">Eight To Ten PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.eightToTenPM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxyEightToTenPM">Oxy Eight To Ten PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxyEightToTenPM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.tenToTwelvePM">Ten To Twelve PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.tenToTwelvePM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxyTenToTwelvePM">Oxy Ten To Twelve PM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxyTenToTwelvePM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.twelveToTwoAM">Twelve To Two AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.twelveToTwoAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxyTwelveToTwoAM">Oxy Twelve To Two AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxyTwelveToTwoAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.twoToFourAM">Two To Four AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.twoToFourAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxyTwoToFourAM">Oxy Two To Four AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxyTwoToFourAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.fourToSixAM">Four To Six AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.fourToSixAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.oxyFourToSixAM">Oxy Four To Six AM</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.oxyFourToSixAM }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.createdDate">Created Date</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.createdDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.lastModified | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="auditApp.auditPatientMonitoringForm.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ auditPatientMonitoringForm.freeField4 }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/audit-patient-monitoring-form', auditPatientMonitoringForm.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

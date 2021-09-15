@@ -44,8 +44,16 @@
     "clientTheme": "none",
     "clientThemeVariant": "",
     "reactive": false,
-    "entities": ["Question", "Annexure"],
-    "lastLiquibaseTimestamp": 1631522830000
+    "entities": [
+      "Question",
+      "Annexure",
+      "AuditFormSHospGenInfo",
+      "Audit",
+      "AnnexureQuestions",
+      "AnnexureAnswers",
+      "AuditPatientMonitoringForm"
+    ],
+    "lastLiquibaseTimestamp": 1631709303000
   },
   "git-provider": "GitHub",
   "git-company": "SubhashGaikwad",

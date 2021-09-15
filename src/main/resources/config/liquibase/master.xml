@@ -17,8 +17,16 @@
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210913084709_added_entity_Question.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210913084710_added_entity_Annexure.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210915123459_added_entity_AuditFormSHospGenInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210915123500_added_entity_Audit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210915123501_added_entity_AnnexureQuestions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210915123502_added_entity_AnnexureAnswers.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210915123503_added_entity_AuditPatientMonitoringForm.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20210913084709_added_entity_constraints_Question.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210915123500_added_entity_constraints_Audit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210915123501_added_entity_constraints_AnnexureQuestions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210915123502_added_entity_constraints_AnnexureAnswers.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

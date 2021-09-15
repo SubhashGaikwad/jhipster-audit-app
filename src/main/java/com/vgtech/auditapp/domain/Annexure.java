@@ -17,6 +17,7 @@ public class Annexure implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "type")
@@ -33,17 +34,18 @@ public class Annexure implements Serializable {
     private Set<Question> questions = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
+
     public Long getId() {
-        return id;
+        return this.id;
+    }
+
+    public Annexure id(Long id) {
+        this.setId(id);
+        return this;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Annexure id(Long id) {
-        this.id = id;
-        return this;
     }
 
     public String getType() {
@@ -51,7 +53,7 @@ public class Annexure implements Serializable {
     }
 
     public Annexure type(String type) {
-        this.type = type;
+        this.setType(type);
         return this;
     }
 
@@ -64,7 +66,7 @@ public class Annexure implements Serializable {
     }
 
     public Annexure compliance(Boolean compliance) {
-        this.compliance = compliance;
+        this.setCompliance(compliance);
         return this;
     }
 
@@ -77,7 +79,7 @@ public class Annexure implements Serializable {
     }
 
     public Annexure comment(String comment) {
-        this.comment = comment;
+        this.setComment(comment);
         return this;
     }
 
@@ -87,6 +89,16 @@ public class Annexure implements Serializable {
 
     public Set<Question> getQuestions() {
         return this.questions;
+    }
+
+    public void setQuestions(Set<Question> questions) {
+        if (this.questions != null) {
+            this.questions.forEach(i -> i.setAnnexure(null));
+        }
+        if (questions != null) {
+            questions.forEach(i -> i.setAnnexure(this));
+        }
+        this.questions = questions;
     }
 
     public Annexure questions(Set<Question> questions) {
@@ -104,16 +116,6 @@ public class Annexure implements Serializable {
         this.questions.remove(question);
         question.setAnnexure(null);
         return this;
-    }
-
-    public void setQuestions(Set<Question> questions) {
-        if (this.questions != null) {
-            this.questions.forEach(i -> i.setAnnexure(null));
-        }
-        if (questions != null) {
-            questions.forEach(i -> i.setAnnexure(this));
-        }
-        this.questions = questions;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
